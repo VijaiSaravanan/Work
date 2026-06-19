@@ -1,0 +1,6 @@
+Test: Sv32Test
+Target: spike64_2
+Result: not_applicable
+Logfile: logs/20260619-054930-spike64_2-Sv32Test.log
+Reproduce: ./gdbserver.py targets/RISC-V/spike64-2.py Sv32Test --hart 0
+Time elapsed: 0.00s

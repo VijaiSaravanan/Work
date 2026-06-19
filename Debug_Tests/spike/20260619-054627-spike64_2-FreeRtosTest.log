@@ -1,0 +1,6 @@
+Test: FreeRtosTest
+Target: spike64_2
+Result: not_applicable
+Logfile: logs/20260619-054627-spike64_2-FreeRtosTest.log
+Reproduce: ./gdbserver.py targets/RISC-V/spike64-2.py FreeRtosTest --hart 0
+Time elapsed: 0.00s
