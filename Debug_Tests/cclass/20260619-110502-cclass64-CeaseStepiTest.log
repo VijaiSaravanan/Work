@@ -1,0 +1,6 @@
+Test: CeaseStepiTest
+Target: cclass64
+Result: not_applicable
+Logfile: logs/20260619-110502-cclass64-CeaseStepiTest.log
+Reproduce: ./gdbserver.py targets/RISC-V/shakti_cclass64.py CeaseStepiTest
+Time elapsed: 0.00s

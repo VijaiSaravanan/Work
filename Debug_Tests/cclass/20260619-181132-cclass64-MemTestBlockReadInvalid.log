@@ -1,0 +1,6 @@
+Test: MemTestBlockReadInvalid
+Target: cclass64
+Result: not_applicable
+Logfile: logs/20260619-181132-cclass64-MemTestBlockReadInvalid.log
+Reproduce: ./gdbserver.py targets/RISC-V/shakti_cclass64.py MemTestBlockReadInvalid
+Time elapsed: 0.00s

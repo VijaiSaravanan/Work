@@ -1,0 +1,6 @@
+Test: MemorySampleSingle
+Target: cclass64
+Result: not_applicable
+Logfile: logs/20260619-181320-cclass64-MemorySampleSingle.log
+Reproduce: ./gdbserver.py targets/RISC-V/shakti_cclass64.py MemorySampleSingle
+Time elapsed: 0.00s

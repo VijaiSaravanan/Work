@@ -1,0 +1,6 @@
+Test: Hwbp2
+Target: cclass64
+Result: not_applicable
+Logfile: logs/20260619-161738-cclass64-Hwbp2.log
+Reproduce: ./gdbserver.py targets/RISC-V/shakti_cclass64.py Hwbp2
+Time elapsed: 0.00s
