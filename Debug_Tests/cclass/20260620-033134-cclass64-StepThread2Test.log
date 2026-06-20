@@ -1,0 +1,6 @@
+Test: StepThread2Test
+Target: cclass64
+Result: not_applicable
+Logfile: logs/20260620-033134-cclass64-StepThread2Test.log
+Reproduce: ./gdbserver.py targets/RISC-V/shakti_cclass64.py StepThread2Test
+Time elapsed: 0.00s
