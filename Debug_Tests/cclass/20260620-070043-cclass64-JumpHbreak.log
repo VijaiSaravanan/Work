@@ -1,0 +1,6 @@
+Test: JumpHbreak
+Target: cclass64
+Result: not_applicable
+Logfile: logs/20260620-070043-cclass64-JumpHbreak.log
+Reproduce: ./gdbserver.py targets/RISC-V/shakti_cclass64.py JumpHbreak
+Time elapsed: 0.00s
