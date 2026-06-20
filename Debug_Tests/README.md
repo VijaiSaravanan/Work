@@ -38,7 +38,7 @@ Generate the build system:
 Configure the installation directory:
 
 ```bash
-./configure --prefix=$HOME/workspace/openocd_install
+./configure --prefix=$HOME/openocd_install
 ```
 
 Build OpenOCD:
