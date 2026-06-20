@@ -1,6 +1,0 @@
-Test: Sv32Test
-Target: cclass64
-Result: not_applicable
-Logfile: logs/20260620-033134-cclass64-Sv32Test.log
-Reproduce: ./gdbserver.py targets/RISC-V/shakti_cclass64.py Sv32Test
-Time elapsed: 0.00s

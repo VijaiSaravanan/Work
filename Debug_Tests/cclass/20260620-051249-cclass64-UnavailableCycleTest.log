@@ -1,0 +1,6 @@
+Test: UnavailableCycleTest
+Target: cclass64
+Result: not_applicable
+Logfile: logs/20260620-051249-cclass64-UnavailableCycleTest.log
+Reproduce: ./gdbserver.py targets/RISC-V/shakti_cclass64.py UnavailableCycleTest
+Time elapsed: 0.00s
