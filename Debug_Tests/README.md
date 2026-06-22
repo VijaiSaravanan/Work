@@ -26,7 +26,8 @@ sudo apt install -y \
     libusb-1.0-0-dev \
     libhidapi-dev \
     libftdi1-dev \
-    libjim-dev
+    libjim-dev \
+    netcat
 ```
 
 Generate the build system:
