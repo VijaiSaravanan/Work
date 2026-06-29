@@ -145,7 +145,7 @@ Navigate to the debug directory:
 cd ~/c-class/verification/riscv-tests/debug
 ```
 
-Update c-class/verification/riscv-tests/debug/testlib.py with shakti_cclass.patch:
+Update c-class/verification/riscv-tests/debug/testlib.py with [shakti_cclass.patch](https://github.com/VijaiSaravanan/Work/blob/main/Debug_Tests/cclass/shakti_cclass.patch):
 
 ```bash
 patch /full/path/to/testlib.py < shakti_cclass.patch
