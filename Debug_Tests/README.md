@@ -47,6 +47,8 @@ Verify the installation:
 $HOME/openocd_install/bin/openocd --version
 ```
 
+---
+
 ## 2. Configure the Environment
 
 Add the installed OpenOCD to your PATH:
@@ -54,6 +56,8 @@ Add the installed OpenOCD to your PATH:
 ```bash
 export PATH=$HOME/openocd_install/bin:$PATH
 ```
+
+---
 
 ## 3. Clone the C-Class Repository
 
@@ -98,6 +102,7 @@ Generate the Verilog sources and Build the Verilator model and generate the boot
 ```bash
 make generate_verilog; make link_verilator_gdb generate_boot_files
 ```
+
 ---
 
 ## 4. Prepare the Debug Environment
@@ -107,6 +112,7 @@ Copy the generated files from the `bin` directory to the debug directory:
 ```bash
 cp -r bin/* verification/riscv-tests/debug/
 ```
+
 ---
 
 ## 5. Set Up the RISC-V Debug Test Framework
@@ -162,6 +168,5 @@ To run specific tests:
 ```bash
 ./gdbserver.py --server_cmd "$(which openocd) -d" targets/RISC-V/spike64-2.py
 ```
----
 
-The output printed in the terminal is copied to Terminal.txt file
+---
