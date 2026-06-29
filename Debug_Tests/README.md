@@ -2,32 +2,19 @@
 
 ## 1. Install OpenOCD
 
-Clone the OpenOCD repository:
-
-```bash
-git clone https://github.com/riscv-collab/riscv-openocd.git
-cd riscv-openocd
-```
-
 Install the required dependencies (Ubuntu):
 
 ```bash
 sudo apt update
 
-sudo apt install -y \
-    autoconf \
-    automake \
-    libtool \
-    pkg-config \
-    make \
-    gcc \
-    g++ \
-    texinfo \
-    libusb-1.0-0-dev \
-    libhidapi-dev \
-    libftdi1-dev \
-    libjim-dev \
-    netcat
+sudo apt install -y autoconf automake libtool  pkg-config make gcc g++ texinfo libusb-1.0-0-dev libhidapi-dev libftdi1-dev libjim-dev netcat-openbsd
+```
+
+Clone the OpenOCD repository:
+
+```bash
+git clone https://github.com/riscv-collab/riscv-openocd.git
+cd riscv-openocd
 ```
 
 Generate the build system:
@@ -65,7 +52,7 @@ $HOME/openocd_install/bin/openocd --version
 Add the installed OpenOCD to your PATH:
 
 ```bash
-export PATH=$HOME/workspace/openocd_install/bin:$PATH
+export PATH=$HOME/openocd_install/bin:$PATH
 ```
 
 ## 3. Clone the C-Class Repository
@@ -95,14 +82,7 @@ pip install -r requirements.txt
 Run the SoC configuration tool to generate the required configuration files:
 
 ```bash
-soc_config \
-    -ispec sample_config/c64/rv64i_isa.yaml \
-    -customspec sample_config/c64/rv64i_custom.yaml \
-    -cspec sample_config/c64/core64.yaml \
-    -gspec sample_config/c64/csr_grouping64.yaml \
-    -dspec sample_config/c64/rv64i_debug.yaml \
-    --deps $PWD/test_soc/c64_c32/c64_deps.yaml \
-    --verbose info
+soc_config -ispec sample_config/c64/rv64i_isa.yaml -customspec sample_config/c64/rv64i_custom.yaml -cspec sample_config/c64/core64.yaml -gspec sample_config/c64/csr_grouping64.yaml -dspec sample_config/c64/rv64i_debug.yaml --deps $PWD/test_soc/c64_c32/c64_deps.yaml --verbose info
 ```
 
 ### Set XXD Version
@@ -113,18 +93,11 @@ export XXD_VERSION=2023
 
 ### Build the RTL
 
-Generate the Verilog sources:
+Generate the Verilog sources and Build the Verilator model and generate the boot files:
 
 ```bash
-make -j8 generate_verilog
+make generate_verilog; make link_verilator_gdb generate_boot_files
 ```
-
-Build the Verilator model and generate the boot files:
-
-```bash
-make link_verilator_gdb generate_boot_files
-```
-
 ---
 
 ## 4. Prepare the Debug Environment
@@ -134,6 +107,7 @@ Copy the generated files from the `bin` directory to the debug directory:
 ```bash
 cp -r bin/* verification/riscv-tests/debug/
 ```
+---
 
 ## 5. Set Up the RISC-V Debug Test Framework
 
@@ -149,7 +123,7 @@ Navigate to the target configuration directory:
 cd riscv-tests/debug/targets/RISC-V/
 ```
 
-Copy the C-Class target files from the C-Class repository into the RISC-V debug framework:
+Copy the C-Class target files from the C-Class repository into the RISC-V debug framework for C-Class Debug Tests:
 
 ```bash
 cp shakti* ../../../../c-class/verification/riscv-tests/debug/targets/RISC-V/
@@ -170,6 +144,12 @@ Run the debug tests on the C-Class RTL:
 ```bash
 ./gdbserver.py --server_cmd "$(which openocd) -d" targets/RISC-V/shakti_cclass64.py
 ```
+To run specific tests:
+
+```bash
+./gdbserver.py --server_cmd "$(which openocd) -d" targets/RISC-V/shakti_cclass64.py <testname>
+```
+
 ---
 
 ## 7. Run the Spike Debug Tests
