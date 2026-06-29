@@ -60,7 +60,7 @@ export PATH=$HOME/openocd_install/bin:$PATH
 Clone the C-Class repository:
 
 ```bash
-git clone https://gitlab.com/shaktiproject/c-class.git
+git clone https://gitlab.com/shaktiproject/cores/c-class.git
 ```
 
 Navigate to the repository:
@@ -114,7 +114,7 @@ cp -r bin/* verification/riscv-tests/debug/
 Clone the RISC-V debug test repository:
 
 ```bash
-git clone https://gitlab.com/shaktiproject/riscv-tests.git
+git clone https://gitlab.com/shaktiproject/cores/riscv-tests.git
 ```
 
 Navigate to the target configuration directory:
@@ -139,6 +139,11 @@ Navigate to the debug directory:
 cd ~/c-class/verification/riscv-tests/debug
 ```
 
+Update c-class/verification/riscv-tests/debug/testlib.py with shakti_cclass.patch:
+
+```bash
+patch /full/path/to/testlib.py < shakti_cclass.patch
+```
 Run the debug tests on the C-Class RTL:
 
 ```bash
